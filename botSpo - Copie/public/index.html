@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mise à jour de l'email et démarrage du bot</title>
+    <script>
+        async function updateEmail() {
+            const emailInput = document.getElementById('email').value;
+
+            try {
+                const response = await fetch('/update-email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email: emailInput })
+                });
+
+                if (response.ok) {
+                    alert('Email mis à jour avec succès!');
+                } else {
+                    alert('Erreur lors de la mise à jour de l\'email');
+                }
+            } catch (error) {
+                console.error('Erreur:', error);
+                alert('Une erreur est survenue');
+            }
+        }
+
+        async function startBot() {
+            try {
+                const response = await fetch('/start-bot', {
+                    method: 'POST',
+                });
+
+                if (response.ok) {
+                    alert('Bot démarré avec succès!');
+                } else {
+                    alert('Erreur lors du démarrage du bot');
+                }
+            } catch (error) {
+                console.error('Erreur:', error);
+                alert('Une erreur est survenue');
+            }
+        }
+    </script>
+</head>
+<body>
+<h1>Mise à jour de l'email Spotify</h1>
+<input type="email" id="email" placeholder="Entrez votre email" required>
+<button onclick="updateEmail()">Mettre à jour l'email</button>
+<button onclick="startBot()">Démarrer le bot</button>
+</body>
+</html>
