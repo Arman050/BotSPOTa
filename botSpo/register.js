@@ -170,7 +170,9 @@
 const puppeteer = require('puppeteer');
 
 // Replace this array with your list of emails
-const emails = ['gtc1478gtc15@gmail.com', 'gtc1478gtc111@gmail.com', 'gtc1478gtc13@gmail.com'];
+const emails = [
+    'mahyr162@gmail.com'
+];
 
 const SPOTIFY_SIGNUP_URL = 'https://www.spotify.com/be-nl/signup/?flow_ctx=daa65fb7-da58-413c-adcf-2a21e6af9e14%3A1728527182';
 
@@ -183,7 +185,7 @@ const SPOTIFY_SIGNUP_URL = 'https://www.spotify.com/be-nl/signup/?flow_ctx=daa65
 
         // Step 1: Access the Spotify signup page
         await page.goto(SPOTIFY_SIGNUP_URL);
-
+        await new Promise(resolve => setTimeout(resolve, 2000));
         // Step 2: Fill in the email field
         await page.type('input[name="username"]', email);
 

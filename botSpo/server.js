@@ -310,8 +310,8 @@ const SPOTIFY_URL = 'https://partner-provisioning.spotify.com/starbucks/';
 const SPOTIFY_LOGIN_URL = 'https://accounts.spotify.com/en/login';
 const SPOTIFY_REGISTER_URL = 'https://partner-provisioning.spotify.com/starbucks/register/';
 
-const usernames = ['US8547584', 'US8547585']; // Remplacez par vos noms d'utilisateur Starbucks
-const lastName = 'Smith'; // Remplacez par votre nom de famille
+const usernames = ['US8547584', 'US8547585'];
+const lastName = 'Smith';
 const emails = [
     'tstpu7768735@aol.com',
     'ritrumoyda@gufum.com',
@@ -326,15 +326,15 @@ const emails = [
     'gtc1478gtc17@gmail.com',
     'gtc1478gtc18@gmail.com',
     'gtc1478gtc111@gmail.com'
-]; // Remplacez par votre liste d'emails
-const password = 'SPOTIFY12345'; // Remplacez par votre mot de passe
+];
+const password = 'SPOTIFY12345';
 
 (async () => {
     for (let i = 0; i < emails.length; i++) {
         const email = emails[i];
-        const username = usernames[i % usernames.length]; // Gère le cas où le nombre d'e-mails est supérieur au nombre d'utilisateurs
+        const username = usernames[i % usernames.length];
 
-        const browser = await puppeteer.launch({ headless: false }); // Ouvrir le navigateur pour chaque compte
+        const browser = await puppeteer.launch({ headless: false });
         const page = await browser.newPage();
 
         // Étape 1 : Accéder à la page d'offre de Spotify
@@ -395,3 +395,29 @@ const password = 'SPOTIFY12345'; // Remplacez par votre mot de passe
         await browser.close(); // Fermez le navigateur après chaque compte
     }
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
